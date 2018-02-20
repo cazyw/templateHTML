@@ -1,0 +1,43 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "NODE_ENV=test mocha --recursive --slow 0",
+    "test-watch": "NODE_ENV=test nodemon --exec 'npm test' & npm run watch:webpack",
+    "build": "webpack --progress -p",
+    "watch:webpack": "webpack --progress --watch",
+    "watch:server": "nodemon server/app.js",
+    "watch": "NODE_ENV=development npm run watch:webpack & npm run watch:server"
+  },
+  "keywords": [
+
+  ],
+  "author": "Carol Wong",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "css-loader": "^0.28.9",
+    "mocha": "^5.0.0",
+    "nodemon": "^1.14.12",
+    "style-loader": "^0.20.1",
+    "supertest": "^3.0.0",
+    "webpack": "^3.10.0"
+  },
+  "engines": {
+    "node": "8.9.1"
+  }
+}
