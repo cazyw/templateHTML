@@ -1,19 +1,13 @@
-# _____________ App
+# Templates and other Helpful Files
 
+## Web
+Starter files for web-based projects. Also includes example files for:
+* webpack configuration
+* package.json
+* config files (for MongoDB)
 
-## Objective
+## Terminal
+Files to assist with colour modifications
 
-
-## Operating Instructions
-
-<img src="" width="450" alt="">
-
-## System Dependencies & Configuration
-
-## Application Installation Instructions
-
-## Testing
-
-## Discussion
-
-## Contributing
+## editors
+Settings for vscode
