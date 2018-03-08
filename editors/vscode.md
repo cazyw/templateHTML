@@ -48,3 +48,16 @@
 }
 
 ```
+
+## C# using VSCode
+
+Make sure the configuration file is changed to `"console": "externalTerminal"` to allow input when running in debug
+
+```
+"configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            ...
+            "console": "externalTerminal",
+            ...
+```
