@@ -18,7 +18,37 @@
         "C:\\Users\\Caz\\Downloads\\cmder_mini\\vscode.bat"
     ]
 }
+
 ```
+```
+{
+    "editor.tabSize": 2,
+    "workbench.colorTheme": "Atom One Dark",
+
+    "editor.tokenColorCustomizations": {
+        "strings" : "#d6bc8c",
+        "textMateRules": [
+        {
+            "scope": "punctuation.definition.string.begin",
+            "settings": {
+                "foreground": "#d6bc8c"
+            }
+        
+        },
+        {
+            "scope": "punctuation.definition.string.end",
+            "settings": {
+                "foreground": "#d6bc8c"
+            }
+        
+        }
+        ]
+        
+    }
+}
+
+```
+
 
 ## User Snippets
 
