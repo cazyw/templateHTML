@@ -10,9 +10,9 @@ yarn-error.log*
 .npm
 
 # Dependency directories
-/node_modules
-/jspm_packages
-/bower_components
+node_modules/
+jspm_packages/
+bower_component/
 
 # Yarn Integrity file
 .yarn-integrity
@@ -23,6 +23,9 @@ yarn-error.log*
 # dotenv environment variables file(s)
 .env
 .env.*
+
+# nodemon environment variables
+nodemon.json
 
 #Build generated
 dist/
@@ -46,7 +49,7 @@ build/
 
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
