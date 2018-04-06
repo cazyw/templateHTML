@@ -11,9 +11,9 @@ Files to assist with colour modifications for"
 * git bash
 * macox terminal
 
-## editors
+## Editors
 Settings for vscode
 
-## notes
+## Notes, Tips and Tricks
 Helpful tips and notes and commands for:
 * vscode
