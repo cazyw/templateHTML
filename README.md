@@ -1,5 +1,7 @@
 # Templates and other Helpful Files
 
+Still a work in progress
+
 ## Web
 Template folders for:
 * Express Server App
@@ -12,8 +14,11 @@ Files to assist with colour modifications for"
 * macox terminal
 
 ## Editors
-Settings for vscode
+Settings for
+* vscode
 
 ## Notes, Tips and Tricks
 Helpful tips and notes and commands for:
-* vscode
+* git
+* vim
+* IIS
