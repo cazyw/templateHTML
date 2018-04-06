@@ -1,16 +1,19 @@
 # Templates and other Helpful Files
 
 ## Web
-Starter files for web-based projects. Also includes example files for:
-* webpack configuration
-* package.json
-* config files (for MongoDB)
+Template folders for:
+* Express Server App
+* React and Express Server App
 
 ## Terminal
-Files to assist with colour modifications
+Files to assist with colour modifications for"
+* cmder
+* git bash
+* macox terminal
 
 ## editors
 Settings for vscode
 
 ## notes
-Helpful tips and notes and commands
+Helpful tips and notes and commands for:
+* vscode

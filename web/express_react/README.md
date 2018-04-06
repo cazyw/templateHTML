@@ -1,8 +1,7 @@
 Template for:
 * Express Server
-* Basic front-end
+* React front-end and React bootstrap (in client folder)
 * MongoDB
-* Webpack
 * Mocha, Chai, Supertest testing
 * eslint
 * config environments
