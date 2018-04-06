@@ -2,6 +2,7 @@
 
 ## Vim
 
+Helpful when editing git commits in the terminal
 * `i` to insert (edit)
 * ```Ctrl + V``` to select the whole line
 * ```d``` to yank (cut) the line
@@ -9,8 +10,20 @@
 
 ## Git
 
+Useful commands:
 * `git rebase -i` to edit / squash commits
 * `git branch -d <branch>` to delete a local branch
+
+Accidentally started working on something whilst on the master branch? (workflow below not using stash)
+
+1. checkout and switch to a feature branch
+1. commit the changes in the feature branch
+1. switch back to master
+1. pull from remote to get the latest version
+1. switch to the feature branch
+1. merge master into the feature branch
+1. continue working on the feature branch
+
 
 ## IIS (Internet Information Services)
 
