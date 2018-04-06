@@ -1,3 +1,12 @@
+Template for:
+* Express Server
+* Basic front-end
+* Webpack
+* Mocha, Chai, Supertest testing
+* eslint
+* config environments
+
+
 # _____________ App
 
 

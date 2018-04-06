@@ -11,3 +11,6 @@ Files to assist with colour modifications
 
 ## editors
 Settings for vscode
+
+## notes
+Helpful tips and notes and commands
