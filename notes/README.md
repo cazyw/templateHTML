@@ -1,12 +1,6 @@
 # Helpful tips and code
 
-## Vim
 
-Helpful when editing git commits in the terminal
-* `i` to insert (edit)
-* ```Ctrl + V``` to select the whole line
-* ```d``` to yank (cut) the line
-* ```:wq``` to save and exit
 
 ## Git
 
@@ -24,6 +18,10 @@ Accidentally started working on something whilst on the master branch? (workflow
 1. merge master into the feature branch
 1. continue working on the feature branch
 
+[Github Blog](https://blog.github.com/)
+[Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials)
+[Github Blog on Undo](https://blog.github.com/2015-06-08-how-to-undo-almost-anything-with-git/)
+
 
 ## IIS (Internet Information Services)
 
@@ -38,7 +36,31 @@ This is very useful in order to create a web server / website hosted locally
     * Managed Pipeline mode: Classic
     * Advanced Settings (Identity): LocalSystem
 1. Running a networked .NET site:
-     * .NET CLR version: .NET CLR v4.0
+    * .NET CLR version: .NET CLR v4.0
     * Managed Pipeline mode: Integrated
     * Advanced Settings (Identity): NetworkService   
 1. Update the hosts file (C:\Windows\System32\drivers\etc) to include the IP address and host domain
+
+## Javascript
+
+[You Don't Know Series](https://github.com/getify/You-Dont-Know-JS)
+
+## Markdown
+
+[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+
+## Powershell
+
+[Microsoft Docs](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?view=powershell-6)
+
+## Sitecore
+
+[Official Docs](http://learnsitecore.cmsuniverse.net/en/globalnavigation/sitecore-beginners-guide.aspx)
+
+## Vim
+
+Helpful when editing git commits in the terminal
+* `i` to insert (edit)
+* ```Ctrl + V``` to select the whole line
+* ```d``` to yank (cut) the line
+* ```:wq``` to save and exit
