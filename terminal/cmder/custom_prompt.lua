@@ -3,6 +3,14 @@
 -- git functions copied from the main ..\vendor\clink.lua file
 -- and modified
 
+colors = {
+    clean = "\x1b[1;30;36m",
+    dirty = "\x1b[31;1m",
+    yellow = "\x1b[1;30;33m",
+    grey = "\x1b[1;30;40m",
+    white = "\x1b[0m"
+}
+
 local function get_git_status()
     local file = io.popen("git --no-optional-locks status --porcelain 2>nul")
     for line in file:lines() do
@@ -69,22 +77,16 @@ local function get_git_branch(git_dir)
     -- if HEAD matches branch expression, then we're on named branch
     -- otherwise it is a detached commit
     local branch_name = HEAD:match('ref: refs/heads/(.+)')
-
+    
     return branch_name or 'HEAD detached at '..HEAD:sub(1, 7)
 end
 
 
 function custom_prompt()
     cwd = clink.get_cwd()
-    -- colours are yellow (path) and gray (lambda)
-    prompt = "\x1b[1;30;33m{cwd} {git}{hg}{svn} \n\x1b[1;30;40m{lamb} \x1b[0m"
+    prompt = colors.yellow.."{cwd} {git}{hg}{svn}\n"..colors.grey.."{lamb} "..colors.white
+    -- prompt = "\x1b[1;30;33m{cwd} {git}{hg}{svn} \n\x1b[1;30;40m{lamb} \x1b[0m"
     new_value = string.gsub(prompt, "{cwd}", cwd)
-
-    -- Colors for git status
-    local colors = {
-        clean = "\x1b[1;30;36m", -- cyan
-        dirty = "\x1b[31;1m",
-    }
 
     local git_dir = get_git_dir()
     if git_dir then
@@ -103,11 +105,13 @@ function custom_prompt()
         end
     else
         -- No git present or not in git file
+
         add_git = string.gsub(new_value, "{git}", "")
     end
 
 
   clink.prompt.value = string.gsub(add_git, "{lamb}", "λ")
 end
+
 
 clink.prompt.register_filter(custom_prompt, 1)
