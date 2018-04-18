@@ -10,6 +10,7 @@ Useful commands:
 * `git push --set-upstream origin <branch name>` to set upstream branch once branch created
 * `git remote prune origin --dry-run` (remove `--dry-run` to action) remove reference to remote if branch no longer exists on the remote
 * `git fetch --prune` remove any remote-tracking references that no longer exist on the remote
+* `git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)` get the current remote tracking branch
  
 
 Accidentally started working on something whilst on the master branch? (workflow below not using stash)
