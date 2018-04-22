@@ -78,9 +78,12 @@ local function git_prompt_filter()
     -- for remote and ref resolution algorithm see https://git-scm.com/docs/git-push
     local remote_to_push = git.get_config(git_dir, 'branch "'..branch..'"', 'remote') or 'origin'
     local remote_ref = git.get_config(git_dir, 'branch "'..branch..'"', 'merge')
+    if (remote_ref) then
     remote_ref = remote_ref:match('refs/heads/(.+)$') or
         git.get_config(git_dir, 'push', 'default')
-
+    else 
+        remote_ref = "<no upstream branch yet>"
+    end
     local text = remote_to_push
     if (remote_ref) then text = text..'/'..remote_ref end
 
