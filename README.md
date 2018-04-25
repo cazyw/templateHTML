@@ -3,19 +3,21 @@
 Still a work in progress
 
 ## Web
-Template folders for:
+Template folders/settings for:
 * Express Server App
 * React and Express Server App
 
 ## Terminal
-Files to assist with colour modifications for"
+Files to assist with colour modifications and git status for
 * cmder
 * git bash
-* macox terminal
+* macosx terminal
 
 ## Editors
 Settings for
 * vscode
+
+Use [Setting Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) to sync settings across devices (e.g. home and work)
 
 ## Notes, Tips and Tricks
 Helpful tips and notes and commands for:
