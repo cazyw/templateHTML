@@ -5,7 +5,13 @@ Still a work in progress
 ## Web
 Template folders/settings for:
 * Express Server App
+  * Express App with webpack config
+  * Mocha
 * React and Express Server App
+  * Includes both a Node and React Server
+  * Includes webpack (to test React front-end)
+  * Mocha
+  * Mongo DB
 
 ## Terminal
 Files to assist with colour modifications and git status for
