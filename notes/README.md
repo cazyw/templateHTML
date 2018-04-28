@@ -1,6 +1,27 @@
 # Helpful tips and code
 
+## Certificates
 
+For working in a **dev** environment that needs both creating a root certificate authority and self-signed certificate using OpenSSL in Powershell. Download OpenSSL (get via chocolatey)
+
+1. Create the private key for the root certificate authority
+1. Create the root certificate based on this private key
+1. Create a private key for the self-signed certifiate
+1. Create the signing request (must fill in the **common name** field)
+1. Greate the certificate with the root cert and key
+1. package both the private keys and certs in encrypted p12 files
+
+```
+openssl genrsa -des3 -out rootCA.key 4096
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
+
+openssl genrsa -out domainCert.key 2048
+openssl req -new -key domainCert.key -out domainCert.csr
+openssl x509 -req -in domainCert.csr -CA rootCA.crt -CAkey rootCA.key -out domainCert.crt -days 1024 -sha256
+
+openssl pkcs12 -export -out rootCA.p12 -inkey rootCA.key -in rootCA.crt
+openssl pkcs12 -export -out domainCert.p12 -inkey domainCert.key -in domainCert.crt
+```
 
 ## Git
 
