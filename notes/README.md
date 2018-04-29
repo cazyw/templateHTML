@@ -2,11 +2,11 @@
 
 ## Certificates
 
-For working in a **dev** environment that needs both creating a root certificate authority and self-signed certificate using OpenSSL in Powershell. Download OpenSSL (get via chocolatey)
+For working in a **dev** environment that needs both creating a root certificate authority and signed certificate using OpenSSL in Powershell. Download OpenSSL (get via chocolatey)
 
 1. Create the private key for the root certificate authority
 1. Create the root certificate based on this private key
-1. Create a private key for the self-signed certifiate
+1. Create a private key for the certifiate to be signed by this authority
 1. Create the signing request (must fill in the **common name** field)
 1. Greate the certificate with the root cert and key
 1. package both the private keys and certs in encrypted p12 files
@@ -24,6 +24,10 @@ openssl x509 -req -in domainCert.csr -CA rootCA.crt -CAkey rootCA.key -out domai
 openssl pkcs12 -export -out rootCA.p12 -inkey rootCA.key -in rootCA.crt
 openssl pkcs12 -export -out domainCert.p12 -inkey domainCert.key -in domainCert.crt
 ```
+
+If the certificate needs to be installed:
+* 
+
 
 ## Git
 
@@ -55,7 +59,7 @@ Accidentally started working on something whilst on the master branch? (workflow
 
 This is very useful in order to create a web server / website hosted locally 
 
-1. Start IIS Manager with `inetmgr`
+1. Start IIS Manager with `inetmgr` in Run
 1. Add a website
 1. Add site name and host and path to physical file
 1. Set bindings to 127.0.0.1
@@ -94,8 +98,11 @@ Helpful when editing git commits in the terminal
 * ```:wq``` to save and exit
 
 ## Browsermob and Selenium
-See Browsermob: https://github.com/lightbody/browsermob-proxy
-See OpenSSL commands: https://wiki.openssl.org/index.php/Command_Line_Utilities
+Helpful links:
+* See Browsermob: https://github.com/lightbody/browsermob-proxy
+* See OpenSSL commands: https://wiki.openssl.org/index.php/Command_Line_Utilities
+* Comments about custom certs: https://groups.google.com/forum/#!topic/browsermob-proxy/ntA1ezczIa0
+* Generating root CA and certs signed by this CA: https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309
 
 Using Browsermob with Selenium. When capturing https requests, a self-signed root certificate is required for all browsers. BrowserMob Proxy uses the `ca-keystore-rsa.p12` file to load its CA Root Certificate and Private Key. For IE, the certificate (`ca-certificate-rsa.cer`) must be inserted as a Trusted Root Certificate. There are certain parameters that the browsermob proxy server expects in the keys generated: `browsermob-proxy/browsermob-core/src/main/java/net/lightbody/bmp/BrowserMobProxyServer.java`
 
@@ -148,3 +155,9 @@ Unzip, replace and then re-zip the files (any zip program, just output to `.jar`
 
 ### Import the certificate
 Import the certificate into Trusted Root Certification Authorities (for IE).
+
+### Programatically remove certificate
+To remove in powershell (identify via thumbprint):
+```
+Get-ChildItem "Cert:\LocalMachine\Root\<thumbprint>" | Remove-Item
+```
