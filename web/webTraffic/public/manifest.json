@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "WebTraffic",
+  "description": "Who's tracking you and what data are they capturing?",
+  "version": "1.0.0",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Chrome extension popup"
+  },
+  "icons": {
+    "16": "searching_16.png",
+    "32": "searching_32.png",
+    "128": "searching_128.png"
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}

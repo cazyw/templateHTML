@@ -12,6 +12,9 @@ Template folders/settings for:
   * Includes webpack (to test React front-end)
   * Mocha
   * Mongo DB
+* Chrome Extension +  React front-end
+  * React front-end
+  * Uses chrome webrequest API to capture http(s) requests
 
 ## Terminal
 Files to assist with colour modifications and git status for
