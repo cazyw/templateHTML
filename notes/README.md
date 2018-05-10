@@ -13,7 +13,7 @@ For working in a **dev** environment that needs both creating a root certificate
 
 NB: when using the below code, the common name for the root authority and the cert being signed by the root authority should not be the same
 
-```
+```Powershell
 openssl genrsa -des3 -out rootCA.key 4096
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.crt
 
@@ -89,6 +89,48 @@ This is very useful in order to create a web server / website hosted locally
 
 [Official Docs](http://learnsitecore.cmsuniverse.net/en/globalnavigation/sitecore-beginners-guide.aspx)
 
+## Testing
+
+### Mocha
+
+When running/automating tests through a gulp file, the output displays in white. To force it to display in colour, use `-c, --colors `
+
+#### this
+
+When referencing other functions within a module, Node is able to identify which function is being referenced, however when running tests in Mocha (and stubbing/spying on referenced functions with sinon), Mocha gets confused and is unable to identify them.
+
+e.g. 
+
+```Javascript
+export module HealthFood {
+    export function fruitSalad() {
+        getFruit();
+        return ....
+    }
+
+    export function getFruit() {
+        ...
+    }
+}
+```
+
+Stubbing getVegetables [`stub(HealthFood, 'getFruit')`] will not work as `getFruit()` is called within fruitSalad. Mocha can't figure out the function being called is the one that is stubbed. 
+
+The solution is to include `this` when calling the function i.e. 
+
+```Javascript
+export module HealthFood {
+    export function fruitSalad() {
+        this.getFruit();
+        return ....
+    }
+
+    export function getFruit() {
+        ...
+    }
+}
+```
+
 ## Vim
 
 Helpful when editing git commits in the terminal
@@ -106,7 +148,7 @@ Helpful links:
 
 Using Browsermob with Selenium. When capturing https requests, a self-signed root certificate is required for all browsers. BrowserMob Proxy uses the `ca-keystore-rsa.p12` file to load its CA Root Certificate and Private Key. For IE, the certificate (`ca-certificate-rsa.cer`) must be inserted as a Trusted Root Certificate. There are certain parameters that the browsermob proxy server expects in the keys generated: `browsermob-proxy/browsermob-core/src/main/java/net/lightbody/bmp/BrowserMobProxyServer.java`
 
-```
+```Java
  /* Default MITM resources */
     private static final String RSA_KEYSTORE_RESOURCE = "/sslSupport/ca-keystore-rsa.p12";
     private static final String EC_KEYSTORE_RESOURCE = "/sslSupport/ca-keystore-ec.p12";

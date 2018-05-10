@@ -30,6 +30,10 @@ Use [Setting Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code
 
 ## Notes, Tips and Tricks
 Helpful tips and notes and commands for:
-* git
-* vim
+* browsermob
 * IIS
+* git
+* mocha/sinon js testing
+* vim
+* windows certificates
+
