@@ -77,6 +77,44 @@ This is very useful in order to create a web server / website hosted locally
 
 [You Don't Know Series](https://github.com/getify/You-Dont-Know-JS)
 
+### Async/Await
+
+Async/await and promises are the same thing under the hood.
+
+Every async function returns a ***promise***. Await pauses the execution, waits for the promise to be resolved and returns the value. If a function is not awaited, it will return the Promise rather than the value. This may not be obvious and only realised due to unexpected behaviour.
+
+```Javascript
+const notAwaited = getData(); // returns a promise
+const awaited = await getData(); // returns the resolved promise
+
+``` 
+
+Errors are handled in try/catch blocks.
+
+You can only await one at a time i.e. code runs sequentially
+```Javascript
+let foo = await getFoo();
+let bar = getBar(); // waits for getFoo to finish
+let hello = await getHello(); // only waits for getFoo, doesn't wait for getBar
+let world = await getWorld(); // waits for getFoo and getHello
+```
+
+
+
+### Promises
+
+A promise contains another object which are obtained using `.then` and handled when error with `.catch`. Promises force asynchronicity.
+
+`Promise.all` will take an array of promises, and compose them all into a single promise, which resolves only when every child promise in the array has resolved itself.
+
+```Javascript
+// wait for both promises to resolve
+let [foo, bar] = await Promise.all([getFoo(), getBar()]);
+
+```
+
+However `Promise.all` does not *create* the promises passed in, it only waits for these *already created* promises to resolve.
+
 ## Markdown
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
