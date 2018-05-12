@@ -115,6 +115,15 @@ let [foo, bar] = await Promise.all([getFoo(), getBar()]);
 
 However `Promise.all` does not *create* the promises passed in, it only waits for these *already created* promises to resolve.
 
+### Selenium
+
+To check the cookies on the page use:
+
+```Javascript
+driver.manage().getCookies()
+```
+
+
 ## Markdown
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
