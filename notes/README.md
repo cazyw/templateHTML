@@ -25,8 +25,13 @@ openssl pkcs12 -export -out rootCA.p12 -inkey rootCA.key -in rootCA.crt
 openssl pkcs12 -export -out domainCert.p12 -inkey domainCert.key -in domainCert.crt
 ```
 
-If the certificate needs to be installed:
-* 
+## Chrome Extensions
+
+For a useful template/guide, see:
+
+* Part 1: https://medium.com/@gilfink/building-a-chrome-extension-using-react-c5bfe45aaf36
+* Part 2: https://medium.com/@gilfink/adding-web-interception-abilities-to-your-chrome-extension-fb42366df425
+* Part 3: https://medium.com/@gilfink/using-messaging-in-chrome-extension-4ae65c0622f6
 
 
 ## Git
