@@ -34,6 +34,29 @@ For a useful template/guide, see:
 * Part 3: https://medium.com/@gilfink/using-messaging-in-chrome-extension-4ae65c0622f6
 
 
+## Docker for Windows
+
+* https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
+
+
+Docker for Windows (*requires Windows 10 Pro or Enterprise 64-bit*) runs both Windows and Linux Containers. If the system requirements are not met, then you can only use Docker Toolbox. Docker Toolbox only has Linux Containers.
+
+There are two flavours, Community Edition and Enterprise Edition.
+
+* **Images** are like a template of what programs you want run inside your container. You can create images based on an existing template.
+* **Containers** are created with an image.
+
+### Images
+
+Images are:
+
+* created inside a `Dockerfile`
+* build (`docker build`)
+* run (`docker run`)
+
+There are two base windows images: `microsoft/windowsservercore` and `microsoft/nanoserver`
+
+
 ## Git
 
 Useful commands:
