@@ -37,6 +37,8 @@ For a useful template/guide, see:
 ## Docker for Windows
 
 * https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
+* https://social.technet.microsoft.com/wiki/contents/articles/38652.nano-server-getting-started-in-container-with-docker.aspx
+* https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#powershell-in-dockerfile
 
 
 Docker for Windows (*requires Windows 10 Pro or Enterprise 64-bit*) runs both Windows and Linux Containers. If the system requirements are not met, then you can only use Docker Toolbox. Docker Toolbox only has Linux Containers.
@@ -48,14 +50,56 @@ There are two flavours, Community Edition and Enterprise Edition.
 
 ### Images
 
-Images are:
-
-* created inside a `Dockerfile`
+* create inside a `Dockerfile`
 * build (`docker build`)
 * run (`docker run`)
 
-There are two base windows images: `microsoft/windowsservercore` and `microsoft/nanoserver`
+There are two base windows images: `microsoft/windowsservercore` and `microsoft/nanoserver`.
 
+To pull an existing image to use without modification:
+
+```Powershell
+$ docker pull microsoft/nanoserver
+```
+
+Otherwise to create a docker image in a Dockerfile based on a template:
+
+```Dockerfile
+FROM openjdk:nanoserver # based on Java built on the nanoserver
+
+# copy a script from the build machine into the container using the ADD instruction. This script is then run using the RUN instruction.
+
+ADD script.ps1 /windows/temp/script.ps1
+RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
+
+ENV chocolateyUseWindowsCompression false
+
+RUN powershell -Command \
+    iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')); \
+    choco feature disable --name showDownloadProgress
+
+RUN powershell -NoProfile -ExecutionPolicy Bypass -Command "$env:ChocolateyUseWindowsCompression='false'; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+RUN choco install -y ie11
+
+```
+
+Build the docker image, giving it the friendly name `windowsimage` using the files in the current directory.
+
+```Powershell
+$ docker build -t windowsimage .
+```
+
+This runs the docker container using the `windowsimage` image, in an interactive session, using Powershell
+
+```Powershell
+docker run -it windowsimage powershell
+```
+To copy the PowerShell script `HelloWorld.ps1` created previously into the NanoServer container:
+
+```Powershell
+docker cp -a C:\Temp\HelloWorld.ps1 HelloNanoServerWorld:/HelloWorld.ps1
+```
 
 ## Git
 
@@ -66,7 +110,7 @@ Useful commands:
 * `git remote prune origin --dry-run` (remove `--dry-run` to action) remove reference to remote if branch no longer exists on the remote
 * `git fetch --prune` remove any remote-tracking references that no longer exist on the remote
 * `git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)` get the current remote tracking branch
- 
+
 
 Accidentally started working on something whilst on the master branch? (workflow below not using stash)
 
@@ -85,7 +129,7 @@ Accidentally started working on something whilst on the master branch? (workflow
 
 ## IIS (Internet Information Services)
 
-This is very useful in order to create a web server / website hosted locally 
+This is very useful in order to create a web server / website hosted locally
 
 1. Start IIS Manager with `inetmgr` in Run
 1. Add a website
@@ -98,7 +142,7 @@ This is very useful in order to create a web server / website hosted locally
 1. Running a networked .NET site:
     * .NET CLR version: .NET CLR v4.0
     * Managed Pipeline mode: Integrated
-    * Advanced Settings (Identity): NetworkService   
+    * Advanced Settings (Identity): NetworkService
 1. Update the hosts file (C:\Windows\System32\drivers\etc) to include the IP address and host domain
 
 ## Javascript
@@ -115,7 +159,7 @@ Every async function returns a ***promise***. Await pauses the execution, waits 
 const notAwaited = getData(); // returns a promise
 const awaited = await getData(); // returns the resolved promise
 
-``` 
+```
 
 Errors are handled in try/catch blocks.
 
@@ -174,7 +218,7 @@ When running/automating tests through a gulp file, the output displays in white.
 
 When referencing other functions within a module, Node is able to identify which function is being referenced, however when running tests in Mocha (and stubbing/spying on referenced functions with sinon), Mocha gets confused and is unable to identify them.
 
-e.g. 
+e.g.
 
 ```Javascript
 export module HealthFood {
@@ -189,9 +233,9 @@ export module HealthFood {
 }
 ```
 
-Stubbing getVegetables [`stub(HealthFood, 'getFruit')`] will not work as `getFruit()` is called within fruitSalad. Mocha can't figure out the function being called is the one that is stubbed. 
+Stubbing getVegetables [`stub(HealthFood, 'getFruit')`] will not work as `getFruit()` is called within fruitSalad. Mocha can't figure out the function being called is the one that is stubbed.
 
-The solution is to include `this` when calling the function i.e. 
+The solution is to include `this` when calling the function i.e.
 
 ```Javascript
 export module HealthFood {
@@ -238,14 +282,14 @@ Browsermob provides the root certificates here: https://github.com/lightbody/bro
 * ca-certificate-rsa.cer (the required certificate ***required***)
 * ca-keystore-rsa.p12 (encrypted container containing the private key and certificate ***required***)
 
-In order to use a custom generated root certificate instead of the one generated by Browsermob, 
+In order to use a custom generated root certificate instead of the one generated by Browsermob,
 * follow the instructions at https://github.com/lightbody/browsermob-proxy/blob/master/mitm/README.md#improving-performance-with-elliptic-curve-ec-cryptography (Java) ***or***
 * generate your own `.cer` and `.p12` files and replace the ones created by Browsermob (requires a bit of manual modification as the certificates are in three locations)
 
 ### Custom Root Certificate
 Create the `.cer` and `.p12` files with the following commands:
 ```
-openssl genrsa -aes128 -out ie-rCA.key 4096 
+openssl genrsa -aes128 -out ie-rCA.key 4096
 openssl req -x509 -new -sha256 -days 3650 -key ie-rCA.key -out ca-certificate-rsa.cer
 openssl pkcs12 -export -out ca-keystore-rsa.p12 -inkey ie-rCA.key -in ca-certificate-rsa.cer -name key
 ```
@@ -263,7 +307,7 @@ Notes:
 * the p12 file name must be `ca-keystore-rsa.p12`
 * `-name key` must be added in generating the p12 as Browsermob uses this alias to find the key
 
-### Replace existing files 
+### Replace existing files
 Once the two custom files are generated, replace the existing files in the following locations:
 1. `/ssl-support`
 1. `/browsermob-core-2.1.2-sources.jar` --> extract and replace in `/sslSupport` folder
