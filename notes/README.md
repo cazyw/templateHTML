@@ -84,17 +84,29 @@ RUN choco install -y ie11
 
 ```
 
-Build the docker image, giving it the friendly name `windowsimage` using the files in the current directory.
+Build the docker image, giving it the friendly name `windowsimage` using the files in the current directory. The flag `-t`  means name and optionally include a tag in the `name:tag` format (no tag included below).
 
 ```Powershell
 $ docker build -t windowsimage .
 ```
 
-This runs the docker container using the `windowsimage` image, in an interactive session, using Powershell
+This runs the docker container using the `windowsimage` image, in an interactive session, using Powershell. The flag `-it` means allocate a pseudo-TTY connected to the container’s stdin (-t) and keep stdin open and interactive (-i).
 
 ```Powershell
-docker run -it windowsimage powershell
+$ docker run -it windowsimage powershell
 ```
+
+You can also mount a directory into a docker image. This is used to run files inside this sandboxed docker container. The image sets up the 'base' programs/environment (like an OS) and the volume contains the files to manipulate/run.
+
+```Powershell
+$ docker run -it -v /path/to/local/directory:/path/in/image -w /workingdirectoryincontainer nameofimage
+
+# for windows, use windows paths
+$ docker run -it -v c:\foo:d:\somedir -w d:\somedir nameofimage
+
+```
+
+
 To copy the PowerShell script `HelloWorld.ps1` created previously into the NanoServer container:
 
 ```Powershell
