@@ -10,10 +10,10 @@ function Add-IEDriversToPath()
   $paths = $path1, $path2, $path3
   $pathsToAdd = ""
 
-  Write-Host "Backing up current system path to C:\Temp\backup__system_path.txt"
+  Write-Host "Backing up current system path to C:\Temp\backup_system_path_Add-IEDriversToPath.txt"
   $env = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
   if(!(Test-Path -Path "C:\Temp" )){ New-Item -ItemType directory -Path "C:\Temp" }
-  $env > "C:\Temp\backup__system_path.txt"
+  $env > "C:\Temp\backup_system_path_Add-IEDriversToPath.txt"
 
   foreach($path in $paths) {
     Write-Host "Path to check: $path"
