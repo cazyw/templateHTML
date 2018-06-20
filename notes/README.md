@@ -1,5 +1,13 @@
 # Helpful tips and code
 
+## Amazon Web Services
+
+### IAM
+
+Within the root account, set up IAM accounts. Remember to add an **alias** (friendly name) otherwise you'll need to use the 12 digit account. Within each account you can have multiple IAM user accounts.
+
+To register/use domain names, use Route53.
+
 ## Certificates
 
 For working in a **dev** environment that needs both creating a root certificate authority and signed certificate using OpenSSL in Powershell. Download OpenSSL (get via chocolatey)
