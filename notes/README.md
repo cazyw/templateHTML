@@ -33,6 +33,13 @@ openssl pkcs12 -export -out rootCA.p12 -inkey rootCA.key -in rootCA.crt
 openssl pkcs12 -export -out domainCert.p12 -inkey domainCert.key -in domainCert.crt
 ```
 
+## Chrome Browser
+
+To default to incognito mode:
+
+1. Save a shortcut to the desktop
+1. add ` -incognito` to the end of the path e.g. `"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito`
+
 ## Chrome Extensions
 
 For a useful template/guide, see:

@@ -2,6 +2,13 @@
 
 Still a work in progress
 
+# Scripts
+
+Useful scripts for
+* Powershell
+  * adding folders to the System Path
+  * removing folders from the System Path
+
 ## Web
 Template folders/settings for:
 * Express Server App
@@ -31,6 +38,8 @@ Use [Setting Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code
 ## Notes, Tips and Tricks
 Helpful tips and notes and commands for:
 * browsermob
+* chrome extensions
+* docker
 * IIS
 * git
 * mocha/sinon js testing
