@@ -221,7 +221,12 @@ To check the cookies on the page use:
 ```Javascript
 driver.manage().getCookies()
 ```
+### IIFE
 
+See https://rollupjs.org/guide/en
+
+You can write modular javascript and then use rollup to bundle as an IIFE.
+```rollup <folder>\<file>.js --format iife --name "<some name>" --file <output>.js```
 
 ## Markdown
 
