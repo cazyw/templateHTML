@@ -48,6 +48,40 @@ For a useful template/guide, see:
 * Part 2: https://medium.com/@gilfink/adding-web-interception-abilities-to-your-chrome-extension-fb42366df425
 * Part 3: https://medium.com/@gilfink/using-messaging-in-chrome-extension-4ae65c0622f6
 
+## Fiddler
+
+Fiddler can be used to both capture/read web traffic and also overwrite existing code (in the current view) in order to test and debug code on a page.
+
+### Reading Traffic
+
+Fiddler will read traffic in all open browsers/pages. By default, only http traffic is captured. In order to read https traffic,
+1. Tools > Option > HTTPS
+1. Select `Decrypt HTTPS traffic`
+1. Accept the prompt to generate and add a certificate
+1. Select `Ignore server certificate errors`
+
+This can be quite unsafe so remember to undo any changes once it is no longer needed.
+
+### Replace code
+
+This is useful to test if development code will work against a live website.
+You can for example
+1. replace a webpage to test settings
+1. replace a link to a javascript file so the page uses the local development file rather than the production file
+
+To replace code:
+1. Go to Autoresponder
+1. Add a rule
+1. Enter the string to match e.g. `https://blah.com/telex.js`
+1. Find the file and enter the replacement file e.g. `C:\sandbox\telex_2.js`
+1. Select `enable rules` and `unmatched requests passthrough` (this must be selected or no other requests will continue)
+
+The same can be done to replace a webpage e.g.
+1. String to match `www.somesite.com/index.html`
+1. Replacement file `C:\sandbox\replacement\test.html`
+
+
+
 ## Git
 
 Useful commands:
