@@ -1,4 +1,13 @@
 
+#############################################################
+# This is the modification script for Powershell in Cmder
+# Place the file (user-profile.ps1) in the \config folder
+#
+# This willdisplay the git branch status
+#
+############################################################
+
+
 #Import-Module 'C:\tools\poshgit\dahlbyk-posh-git-a4faccd\src\posh-git.psd1'
 $ErrorActionPreference= 'continue'
 
@@ -54,24 +63,31 @@ function promptCheck {
     # Convert-Path needed for pure UNC-locations
     write-host "$(Convert-Path $currentDirectory)" -NoNewline -ForegroundColor Yellow
     if ($isGitBranch -eq $TRUE) {
-        write-host " ($(GitBranch)" -NoNewline -ForegroundColor Yellow
-
         if ($hasUpstream -ne "") {
-            write-host " => $hasUpstream)" -NoNewline -ForegroundColor Yellow
+            if(git status --porcelain){
+                # not clean
+                write-host " ($(GitBranch)" -NoNewline -ForegroundColor Red
+                write-host " => $hasUpstream)" -NoNewline -ForegroundColor Red
+            }
+            else {
+                # tree is clean
+                write-host " ($(GitBranch)" -NoNewline -ForegroundColor Cyan
+                write-host " => $hasUpstream)" -NoNewline -ForegroundColor Cyan
+            }
         } else {
+            write-host " ($(GitBranch)" -NoNewline -ForegroundColor Cyan
             write-host " => n/a)" -NoNewline -ForegroundColor Red
         }
     }
-
-    return ""
 }
 
-[ScriptBlock]$Prompt = {
-    $realLASTEXITCODE = $LASTEXITCODE
-    $host.UI.RawUI.WindowTitle = Microsoft.PowerShell.Management\Split-Path $pwd.ProviderPath -Leaf
-    Microsoft.PowerShell.Utility\Write-Host -NoNewline
+
+[ScriptBlock]$PrePrompt = {}
+
+[ScriptBlock]$CmderPrompt = {
+    Microsoft.PowerShell.Utility\Write-Host
     promptCheck
-    Microsoft.PowerShell.Utility\Write-Host "`nλ " -NoNewLine -ForegroundColor "DarkGray"
-    $global:LASTEXITCODE = $realLASTEXITCODE
     return " "
 }
+
+[ScriptBlock]$PostPrompt = {}
