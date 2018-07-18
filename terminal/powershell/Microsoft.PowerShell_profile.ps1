@@ -30,20 +30,34 @@ function RemoteTracking {
 
 function prompt {
     $currentDirectory = $(Get-Location)
+
     $isGitBranch = $(InGitRepo((Convert-Path $currentDirectory)))
     $hasUpstream = RemoteTracking
 
     # Convert-Path needed for pure UNC-locations
-    write-host "PS $(Convert-Path $currentDirectory)" -NoNewline -ForegroundColor Gray
+    write-host "$(Convert-Path $currentDirectory)" -NoNewline -ForegroundColor Yellow
     if ($isGitBranch -eq $TRUE) {
-        write-host " ($(GitBranch)" -NoNewline -ForegroundColor DarkYellow
-
         if ($hasUpstream -ne "") {
-            write-host " => $hasUpstream)" -NoNewline -ForegroundColor DarkYellow
+            if(git status --porcelain){
+                # not clean
+                write-host " ($(GitBranch)" -NoNewline -ForegroundColor Red
+                write-host " => $hasUpstream)" -NoNewline -ForegroundColor Red
+            }
+            else {
+                # tree is clean
+                write-host " ($(GitBranch)" -NoNewline -ForegroundColor Cyan
+                write-host " => $hasUpstream)" -NoNewline -ForegroundColor Cyan
+            }
         } else {
-            write-host " => n/a)" -NoNewline -ForegroundColor DarkRed
+            write-host " ($(GitBranch)" -NoNewline -ForegroundColor Cyan
+            write-host " => n/a)" -NoNewline -ForegroundColor Red
         }
     }
-    
-    return "`n> "
+
+    return "`n>> "
+}
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
 }
