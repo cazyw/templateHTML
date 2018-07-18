@@ -25,9 +25,10 @@ Template folders/settings for:
 
 ## Terminal
 Files to assist with colour modifications and git status for
-* cmder
+* cmder (bash and powershell)
 * git bash
 * macosx terminal
+* Powershell terminal
 
 ## Editors
 Settings for
@@ -41,6 +42,7 @@ Helpful tips and notes and commands for:
 * chrome extensions
 * docker
 * IIS
+* Fiddler
 * git
 * mocha/sinon js testing
 * vim
