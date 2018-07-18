@@ -3,8 +3,8 @@
 # This is the modification script for Powershell in Cmder
 # Place the file (user-profile.ps1) in the \config folder
 #
-# This willdisplay the git branch status
-#
+# This will display the git branch status
+# Updated: 18/07/2018
 ############################################################
 
 
