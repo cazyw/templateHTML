@@ -1,8 +1,21 @@
 # Helpful tips and code
 
 Sections:
-* [Amazon Web Services](##amazon-web-services)
 * [Amazon Web Services](#amazon-web-services)
+* [Certificates](#certificates)
+* [Chrome Browser](#chrome-browser)
+* [Chrome Extensions](#chrome-extensions)
+* [Docker](#docker)
+* [Fiddler](#fiddler)
+* [Git](#git)
+* [Internet Information Services](#internet-information-services)
+* [Javascript](#javascript)
+* [Markdown](#markdown)
+* [Powershell](#powershell)
+* [Selenium](#selenium)
+* [Testing](#testing)
+* [Browsermob and Selenium](#browsermob-and-selenium)
+
 ## Amazon Web Services
 
 ### IAM
@@ -115,7 +128,7 @@ Accidentally started working on something whilst on the master branch? (workflow
 [Github Blog on Undo](https://blog.github.com/2015-06-08-how-to-undo-almost-anything-with-git/)
 
 
-## IIS (Internet Information Services)
+## Internet Information Services
 
 This is very useful in order to create a web server / website hosted locally
 
@@ -158,8 +171,6 @@ let bar = getBar(); // waits for getFoo to finish
 let hello = await getHello(); // only waits for getFoo, doesn't wait for getBar
 let world = await getWorld(); // waits for getFoo and getHello
 ```
-
-
 
 ### Promises
 
