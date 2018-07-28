@@ -31,7 +31,7 @@ However, this means that if your resource behind the ELB is trying to determine 
 
 AWS ELB however can forward the protocol used between the external client and ELB. This can be used to determine whether the request came over a secure network.
 
-Check wehther `HTTP_X_FORWARDED_PROTO = https`
+Check whether `HTTP_X_FORWARDED_PROTO = https`
 
 ## Certificates
 
