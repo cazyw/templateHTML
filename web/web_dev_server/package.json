@@ -1,0 +1,18 @@
+{
+  "name": "web_dev_server",
+  "version": "1.0.0",
+  "description": "template for web dev server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start:dev": "webpack-dev-server",
+    "start:dev-https": "webpack-dev-server --https"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
