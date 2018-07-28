@@ -24,6 +24,15 @@ Within the root account, set up IAM accounts. Remember to add an **alias** (frie
 
 To register/use domain names, use Route53.
 
+### Security and Elastic Load Balancer‎
+By placing resources behind an elastic load balancer, requests for resources can be balanced amongst a number of instances. For example, requests for content can be spread amongst a number of EC2 instances. Security can also be placed at the ELB level with SSL certificates installed at this external facing level.
+
+However, this means that if your resource behind the ELB is trying to determine whether the request came from a secure network (https), the outcome will always be false as the network between the ELB and the instance is in http.
+
+AWS ELB however can forward the protocol used between the external client and ELB. This can be used to determine whether the request came over a secure network.
+
+Check wehther `HTTP_X_FORWARDED_PROTO = https`
+
 ## Certificates
 
 For working in a **dev** environment that needs both creating a root certificate authority and signed certificate using OpenSSL in Powershell. Download OpenSSL (get via chocolatey)
