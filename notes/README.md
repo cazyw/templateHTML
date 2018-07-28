@@ -1,5 +1,8 @@
 # Helpful tips and code
 
+Sections:
+* [Amazon Web Services](##amazon-web-services)
+* [Amazon Web Services](#amazon-web-services)
 ## Amazon Web Services
 
 ### IAM
