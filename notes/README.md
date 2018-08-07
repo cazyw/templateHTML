@@ -11,6 +11,7 @@ Sections:
 * [Internet Information Services](#internet-information-services)
 * [Javascript](#javascript)
 * [Markdown](#markdown)
+* [Network Monitoring](#network-monitoring)
 * [Powershell](#powershell)
 * [Selenium](#selenium)
 * [Testing](#testing)
@@ -212,6 +213,10 @@ You can write modular javascript and then use rollup to bundle as an IIFE.
 ## Markdown
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+
+## Network Monitoring
+
+A very useful chrome tool: `chrome://net-internals/#events`
 
 ## Powershell
 
