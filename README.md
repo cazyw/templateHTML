@@ -8,6 +8,7 @@ Useful scripts for
 * Powershell
   * adding folders to the System Path
   * removing folders from the System Path
+  * setting up a scheduled task
 
 ## Web
 Template folders/settings for:
