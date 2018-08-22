@@ -222,6 +222,15 @@ A very useful chrome tool: `chrome://net-internals/#events`
 
 [Microsoft Docs](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?view=powershell-6)
 
+Show all items directly within a registry key 
+```Powershell
+Get-ChildItem -Path "HKLM:\software\Microsoft\Inetmgr"
+```
+
+```Powershell
+Start-IISSite -Name "Default Web Site"
+Stop-IISSite -Name "Default Web Site"
+```
 ## Sitecore
 
 [Official Docs](http://learnsitecore.cmsuniverse.net/en/globalnavigation/sitecore-beginners-guide.aspx)
