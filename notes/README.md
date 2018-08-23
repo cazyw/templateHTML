@@ -227,6 +227,7 @@ Show all items directly within a registry key
 Get-ChildItem -Path "HKLM:\software\Microsoft\Inetmgr"
 ```
 
+Start/Stop and IIS site
 ```Powershell
 Start-IISSite -Name "Default Web Site"
 Stop-IISSite -Name "Default Web Site"
