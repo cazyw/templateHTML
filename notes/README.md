@@ -10,6 +10,7 @@ Sections:
 * [Git](#git)
 * [Internet Information Services](#internet-information-services)
 * [Javascript](#javascript)
+* [Keyboards](#keyboards)
 * [Markdown](#markdown)
 * [Network Monitoring](#network-monitoring)
 * [Powershell](#powershell)
@@ -209,6 +210,11 @@ See https://rollupjs.org/guide/en
 
 You can write modular javascript and then use rollup to bundle as an IIFE.
 ```rollup <folder>\<file>.js --format iife --name "<some name>" --file <output>.js```
+
+## Keyboards
+
+Ever had the annoying problem where the keys for `@` and `"` seem to have shifted? 
+On Windows 10, this is likely caused by accidentally pressing `Left-Alt + Left-Shift` which toggles between the different languages (I have English (Australia) and English (UK) on my list). Pressing `Left-Alt + Left-Shift` will solve the problem.
 
 ## Markdown
 
