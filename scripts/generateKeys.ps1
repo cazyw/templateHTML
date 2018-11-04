@@ -1,3 +1,12 @@
+# Script to:
+# - generate a private key
+# - generate a public key
+# - generate th x509 certificate and export as pfx
+# - generate the base64string version of the x509 certificate
+# 
+# Prompts will appear for details (can press enter to skip)
+
+
 if(!(Test-Path "Keys")){
   New-Item -ItemType "Directory" -path "Keys"
 }
