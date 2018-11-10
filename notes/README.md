@@ -2,6 +2,7 @@
 
 Sections:
 * [Amazon Web Services](#amazon-web-services)
+* [Buildkite](#buildkite)
 * [Certificates](#certificates)
 * [Chrome Browser](#chrome-browser)
 * [Chrome Extensions](#chrome-extensions)
@@ -59,6 +60,10 @@ openssl x509 -req -in domainCert.csr -CA rootCA.crt -CAkey rootCA.key -out domai
 openssl pkcs12 -export -out rootCA.p12 -inkey rootCA.key -in rootCA.crt
 openssl pkcs12 -export -out domainCert.p12 -inkey domainCert.key -in domainCert.crt
 ```
+
+## Buildkite
+
+See [Buildkite](https://github.com/cazyw/templates-configs-tools/blob/master/notes/Buildkite.md)
 
 ## Chrome Browser
 
@@ -213,7 +218,7 @@ You can write modular javascript and then use rollup to bundle as an IIFE.
 
 ## Keyboards
 
-Ever had the annoying problem where the keys for `@` and `"` seem to have shifted? 
+Ever had the annoying problem where the keys for `@` and `"` seem to have shifted?
 On Windows 10, this is likely caused by accidentally pressing `Alt + Shift` which toggles between the different languages (I have English (Australia) and English (UK) on my list). Pressing `Left-Alt + Shift` will solve the problem. I've found that I do need to press `Left-Alt` specifically but that either `Shift` key will work to switch it back to the correct keys.
 
 ## Markdown
@@ -228,7 +233,7 @@ A very useful chrome tool: `chrome://net-internals/#events`
 
 [Microsoft Docs](https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting?view=powershell-6)
 
-Show all items directly within a registry key 
+Show all items directly within a registry key
 ```Powershell
 Get-ChildItem -Path "HKLM:\software\Microsoft\Inetmgr"
 ```
