@@ -35,7 +35,7 @@ In order to then run the agent (required in order to run the pipeline), navigate
 PS> .\buildkite-agent.exe start
 ```
 
-Buildkite will run the commands in `cmd`.
+Buildkite will run the commands in `cmd`. Start the build agent whenever the pipeline needs to be run. [There are alternatives to hosting the agent online e.g. on AWS so it's not reliant on the agent being started on the local PC]
 
 ### Github
 
