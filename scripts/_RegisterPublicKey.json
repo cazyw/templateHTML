@@ -1,0 +1,8 @@
+{
+  "public-key": {
+    "active": true,
+    "name": <"my-api-key">,
+    "user_id": <userid>,
+    "encoded_value": "<public key>"
+  }
+}
