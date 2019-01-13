@@ -151,3 +151,6 @@ x64/
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+
+# AWS files (configs)
+aws-lambda-tools-*.json
