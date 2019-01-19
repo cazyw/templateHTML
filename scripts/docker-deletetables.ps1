@@ -18,9 +18,9 @@ try {
                                       -Region $region `
                                       -Force
 
-    Write-Host "Removed existing local dynamoDB table $localMasterTable" -ForegroundColor "Yellow"
+    Write-Host "Removed existing local dynamoDB table $localMasterTable" -ForegroundColor "Green"
 } catch {
-    Write-Host "Cannot remove local dynamoDB table $localMasterTable" -ForegroundColor "Yellow"
+    Write-Host "Cannot remove local dynamoDB table $localMasterTable" -ForegroundColor "Magenta"
 }
 
 

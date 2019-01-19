@@ -32,7 +32,7 @@ try {
 
     Write-Host "Removed existing local dynamoDB table $localMasterTable" -ForegroundColor "Green"
 } catch {
-    Write-Host "Cannot remove local dynamoDB table $localMasterTable / Table doesn't exist" -ForegroundColor "Yellow"
+    Write-Host "Cannot remove local dynamoDB table $localMasterTable / Table doesn't exist" -ForegroundColor "Magenta"
 }
 
 Write-Host "Creating local dynamoDB table $localMasterTable" -ForegroundColor "Yellow"
@@ -42,5 +42,5 @@ $createTableResp = New-DDBTable -TableName $localMasterTable `
                                 -WriteCapacity 5 `
                                 -EndpointUrl $endpoint `
                                 -Region $region
-                                Write-Host "Created local dynamoDB table $localMasterTable" -ForegroundColor "Green"
+Write-Host "Created local dynamoDB table $localMasterTable" -ForegroundColor "Green"
 
