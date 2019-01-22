@@ -7,6 +7,7 @@ Sections:
 * [Chrome Browser](#chrome-browser)
 * [Chrome Extensions](#chrome-extensions)
 * [Docker](#docker)
+* [Dotnet](#dotnet)
 * [Fiddler](#fiddler)
 * [Git](#git)
 * [Internet Information Services](#internet-information-services)
@@ -83,6 +84,36 @@ For a useful template/guide, see:
 ## Docker
 
 See [Docker](https://github.com/cazyw/templates-configs-tools/blob/master/notes/Docker.md)
+
+## Dotnet
+
+If using a console app in dotnet core:
+
+Build the app
+```Powershell
+solutionsFolder> dotnet build
+```
+
+Restore the app
+```Powershell
+solutionsFolder> dotnet restore
+```
+
+Run the app
+```Powershell
+solutionsFolder> dotnet run
+
+# or
+
+solutionsFolder> cd .\bin\Debug\netcoreapp2.0
+solutionsFolder\bin\Debug\netcoreapp2.0> dotnet <projectName.dll>
+```
+
+Compile and generate an `.exe` file
+```Powershell
+# in the Developer Command Prompt for VS 2017
+csc /target:exe /out:<name>.exe <CSFile>.cs
+```
 
 ## Fiddler
 
