@@ -274,6 +274,17 @@ Start/Stop and IIS site
 Start-IISSite -Name "Default Web Site"
 Stop-IISSite -Name "Default Web Site"
 ```
+
+To allow unsigned scripts to run (will still have alerts asking if you want to run the script)
+```
+Set-ExecutionPolicy unrestricted 
+```
+
+To allow scripts to run with no popup warnings
+```
+Set-ExecutionPolicy Bypass
+```
+
 ## Sitecore
 
 [Official Docs](http://learnsitecore.cmsuniverse.net/en/globalnavigation/sitecore-beginners-guide.aspx)
