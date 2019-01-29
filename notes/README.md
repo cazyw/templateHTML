@@ -289,6 +289,10 @@ Set-ExecutionPolicy Bypass
 
 [Official Docs](http://learnsitecore.cmsuniverse.net/en/globalnavigation/sitecore-beginners-guide.aspx)
 
+## SOLID Principles
+
+This is a good javascript example/explanation: https://www.youtube.com/watch?v=XzdhzyAukMM
+
 ## Testing
 
 ### Mocha
