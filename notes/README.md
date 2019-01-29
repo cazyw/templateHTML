@@ -17,6 +17,7 @@ Sections:
 * [Network Monitoring](#network-monitoring)
 * [Powershell](#powershell)
 * [Selenium](#selenium)
+* [SOLID Principles](#solid-principles)
 * [Testing](#testing)
 * [Browsermob and Selenium](#browsermob-and-selenium)
 
@@ -277,7 +278,7 @@ Stop-IISSite -Name "Default Web Site"
 
 To allow unsigned scripts to run (will still have alerts asking if you want to run the script)
 ```
-Set-ExecutionPolicy unrestricted 
+Set-ExecutionPolicy unrestricted
 ```
 
 To allow scripts to run with no popup warnings
