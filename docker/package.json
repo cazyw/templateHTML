@@ -1,0 +1,14 @@
+{
+  "name": "docker-template",
+  "version": "1.0.0",
+  "description": "docker temlate",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
