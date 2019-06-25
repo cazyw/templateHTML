@@ -2,23 +2,22 @@
 
 ## Docker for Windows
 
-* https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
-* https://social.technet.microsoft.com/wiki/contents/articles/38652.nano-server-getting-started-in-container-with-docker.aspx
-* https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#powershell-in-dockerfile
+- https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
+- https://social.technet.microsoft.com/wiki/contents/articles/38652.nano-server-getting-started-in-container-with-docker.aspx
+- https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#powershell-in-dockerfile
 
-
-Docker for Windows (*requires Windows 10 Pro or Enterprise 64-bit*) runs both Windows and Linux Containers. If the system requirements are not met, then you can only use Docker Toolbox. Docker Toolbox only has Linux Containers.
+Docker for Windows (_requires Windows 10 Pro or Enterprise 64-bit_) runs both Windows and Linux Containers. If the system requirements are not met, then you can only use Docker Toolbox. Docker Toolbox only has Linux Containers.
 
 There are two flavours, Community Edition and Enterprise Edition.
 
-* **Images** are like a template of what programs you want run inside your container. You can create images based on an existing template.
-* **Containers** are created with an image.
+- **Images** are like a template of what programs you want run inside your container. You can create images based on an existing template.
+- **Containers** are created with an image.
 
 ### Images
 
-* create inside a `Dockerfile`
-* build (`docker build`)
-* run (`docker run`)
+- create inside a `Dockerfile`
+- build (`docker build`)
+- run (`docker run`)
 
 There are two base windows images: `microsoft/windowsservercore` and `microsoft/nanoserver`.
 
@@ -50,7 +49,7 @@ RUN choco install -y ie11
 
 ```
 
-Build the docker image, giving it the friendly name `windowsimage` using the files in the current directory. The flag `-t`  means name and optionally include a tag in the `name:tag` format (no tag included below).
+Build the docker image, giving it the friendly name `windowsimage` using the files in the current directory. The flag `-t` means name and optionally include a tag in the `name:tag` format (no tag included below).
 
 ```Powershell
 $ docker build -t windowsimage .
@@ -72,7 +71,6 @@ $ docker run -it -v c:\foo:d:\somedir -w d:\somedir nameofimage
 
 ```
 
-
 To copy the PowerShell script `HelloWorld.ps1` created previously into the NanoServer container:
 
 ```Powershell
@@ -84,14 +82,17 @@ docker cp -a C:\Temp\HelloWorld.ps1 HelloNanoServerWorld:/HelloWorld.ps1
 Docker by itself cannot be run on its own in Windows Bash. It can however be run in conjunction with Docker on Windows. In this way, the docker engine is running on Windows and you are connecting to it via bash.
 
 ### On Windows 10:
+
 1. Install docker on Windows 10
 1. Switch to Linux Containers
 1. Expose the daemon
-  * select `expose daemon on tcp://localhost:2375 without TLS` or if not using Docker for Windows, configure the docker daemon with `-H tcp://0.0.0.0:2375 and --tlsverify=false` (also see https://docs.docker.com/config/daemon/#configure-the-docker-daemon)
-  
+
+- select `expose daemon on tcp://localhost:2375 without TLS` or if not using Docker for Windows, configure the docker daemon with `-H tcp://0.0.0.0:2375 and --tlsverify=false` (also see https://docs.docker.com/config/daemon/#configure-the-docker-daemon)
+
 ### On WSL (Ubuntu)
 
 Install docker with these commands. Make sure to install via this link and install docker-ce otherwise you may run into tls oversized issues
+
 ```
 # Install packages to allow apt to use a repository over HTTPS
 $ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
@@ -114,6 +115,7 @@ However WSL mounts the file system as `/mnt/c/something/…`
 In order to change the behaviour, you can configure it to mount on `/` instead of `/mnt`
 
 Using Windows 18.03, modify the configuration file
+
 ```
 sudo nano /etc/wsl.conf
 # Now make it look like this and save the file when you're done:
@@ -121,7 +123,23 @@ sudo nano /etc/wsl.conf
 root = /
 options = "metadata"
 ```
+
 Reboot your computer.
 
 Now you're ready to use docker in WSL
 
+## Docker Issues
+
+Windows 10 with docker-toolbox installed.
+
+Running `docker ps` or trying to pull any images results in the following error:
+
+_error during connect: Get https://192.168.99.100:2376/v1.37/containers/json: dial tcp 192.168.99.100:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond._
+
+Running `docker-machine ls` shows the machine is stopped (confirmed in Oracle VM VirtualBox).
+
+Run
+
+```powershell
+docker-machine start default
+```
