@@ -1,0 +1,13 @@
+version: "3"
+services:
+  nodedev:
+    container_name: docker_node
+    build: ./docker/
+    command: sh
+    volumes:
+      - .:/app
+    working_dir: '/app'
+    command: ['/bin/sh', '-c', 'tail -f /dev/null']
+    ports:
+      - 8000:8000
+    restart: always

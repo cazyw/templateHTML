@@ -1,7 +1,9 @@
 # Docker
 
+In this project
+
 ```
-docker build . -t docker-node-image
+docker build ./docker/ -t docker-node-image
 ```
 
 Then inside the relvant project
@@ -12,6 +14,26 @@ docker run -d --rm -it -v ${PWD}:/app --name docker-node docker-node-image
 
 ```
 docker exec -it docker-node sh
+```
+
+```
+docker container stop docker-node
+docker container rm -v docker-node
+```
+
+## Port this to other projects
+
+Copy these files to the relevant project:
+
+- docker-compose.yml
+- docker folder
+
+Then run
+
+```
+docker-compose up --build -d
+docker-compose exec nodedev sh
+docker-compose down -v
 ```
 
 ## Additional commands
