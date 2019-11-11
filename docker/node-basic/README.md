@@ -3,13 +3,13 @@
 In this project
 
 ```
-docker build ./docker/ -t docker-node-image
+docker build ./docker/ -t node-image
 ```
 
 Then inside the relvant project
 
 ```
-docker run -d --rm -it -v ${PWD}:/app --port 8000:8000 --name docker-node docker-node-image
+docker run -d --rm -it -v ${PWD}:/app -p 8000:8000 --name docker-node node-image
 ```
 
 ```
