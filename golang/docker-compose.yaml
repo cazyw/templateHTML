@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  go:
+    container_name: go-fcc
+    build:
+      context: './docker'
+      target: 'develop'
+    volumes:
+      - './:/gofcc/'
+    env_file:
+      - .env
+    environment:
+      - ENV1=${ENV1}
+    ports:
+      - 8080:8080
+    working_dir: '/gofcc/'
+    command: ['/bin/sh', '-c', 'tail -f /dev/null']
+    restart: always
+    # Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
