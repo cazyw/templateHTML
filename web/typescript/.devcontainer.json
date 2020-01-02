@@ -1,0 +1,15 @@
+{
+  "name": "Typescript Template",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "nodedev",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "oderwat.indent-rainbow",
+    "esbenp.prettier-vscode",
+    "shardulm94.trailing-spaces",
+    "NuclleaR.vscode-extension-auto-import",
+    "christian-kohler.path-intellisense"
+  ]
+}
