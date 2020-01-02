@@ -34,11 +34,11 @@
     "chai": "*",
     "concurrently": "^3.5.0",
     "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0",
     "mocha": "*",
     "nodemon": "^1.14.12",
     "supertest": "^3.0.0",
-    "webpack": "^3.10.0",
-    "eslint-plugin-react": "^7.7.0"
+    "webpack": "^4.41.5"
   },
   "engines": {
     "node": "8.9.1",
